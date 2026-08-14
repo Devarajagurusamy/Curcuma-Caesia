@@ -181,12 +181,156 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Checkout Button handler
+    // =========================================================================
+    //  Checkout Modal & Order Confirmation Handling
+    // =========================================================================
+    const checkoutModalEl = document.getElementById("checkoutModal");
+    const checkoutForm = document.getElementById("checkoutForm");
+    const checkoutFormView = document.getElementById("checkoutFormView");
+    const checkoutSuccessView = document.getElementById("checkoutSuccessView");
+    const checkoutModalItems = document.getElementById("checkoutModalItems");
+    const checkoutModalSubtotal = document.getElementById("checkoutModalSubtotal");
+    const checkoutModalTotal = document.getElementById("checkoutModalTotal");
+    const confirmOrderBtn = document.getElementById("confirmOrderBtn");
+    const checkoutErrorFeedback = document.getElementById("checkoutErrorFeedback");
+
+    function openCheckoutModal() {
+        if (cartItems.length === 0) return;
+
+        // Hide Cart Offcanvas
+        const cartOffcanvasEl = document.getElementById("cartOffcanvas");
+        if (cartOffcanvasEl && typeof bootstrap !== "undefined") {
+            const bsOffcanvas = bootstrap.Offcanvas.getInstance(cartOffcanvasEl);
+            if (bsOffcanvas) bsOffcanvas.hide();
+        }
+
+        // Render Checkout Summary
+        let total = 0;
+        let itemsHtml = "";
+        cartItems.forEach(item => {
+            total += item.price;
+            itemsHtml += `
+                <div class="checkout-mini-item">
+                    <div>
+                        <span class="fw-bold text-dark fs-8 d-block">${item.name}</span>
+                        <span class="text-muted fs-8">Qty: ${item.qty} bottle${item.qty > 1 ? 's' : ''}</span>
+                    </div>
+                    <span class="fw-bold text-dark fs-8">₹${item.price.toFixed(2)}</span>
+                </div>
+            `;
+        });
+
+        if (checkoutModalItems) checkoutModalItems.innerHTML = itemsHtml;
+        if (checkoutModalSubtotal) checkoutModalSubtotal.textContent = `₹${total.toFixed(2)}`;
+        if (checkoutModalTotal) checkoutModalTotal.textContent = `₹${total.toFixed(2)}`;
+        if (confirmOrderBtn) {
+            confirmOrderBtn.innerHTML = `
+                <span>CONFIRM ORDER (₹${total.toFixed(2)})</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="flex-shrink-0">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+            `;
+        }
+
+        // Reset views
+        if (checkoutFormView) checkoutFormView.classList.remove("d-none");
+        if (checkoutSuccessView) checkoutSuccessView.classList.add("d-none");
+        if (checkoutErrorFeedback) checkoutErrorFeedback.classList.add("d-none");
+
+        // Show Modal
+        if (checkoutModalEl && typeof bootstrap !== "undefined") {
+            const bsModal = bootstrap.Modal.getOrCreateInstance(checkoutModalEl);
+            bsModal.show();
+        }
+    }
+
     if (checkoutBtn) {
-        checkoutBtn.addEventListener("click", () => {
-            if (cartItems.length === 0) return;
-            const total = cartItems.reduce((sum, item) => sum + item.price, 0);
-            alert(`Thank you for your order!\n\nOrder Summary:\n${cartItems.map(item => `• ${item.name}: ₹${item.price.toFixed(2)}`).join('\n')}\n\nTotal: ₹${total.toFixed(2)}\n\nYou will be redirected to secure checkout.`);
+        checkoutBtn.addEventListener("click", openCheckoutModal);
+    }
+
+    // Checkout Form Submission
+    if (checkoutForm) {
+        checkoutForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById("clientFullName")?.value.trim();
+            const phone = document.getElementById("clientPhone")?.value.trim();
+            const email = document.getElementById("clientEmail")?.value.trim();
+            const address = document.getElementById("clientAddress")?.value.trim();
+            const city = document.getElementById("clientCity")?.value.trim();
+            const state = document.getElementById("clientState")?.value.trim();
+            const pincode = document.getElementById("clientPincode")?.value.trim();
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || "Cash on Delivery (COD)";
+
+            if (!fullName || !phone || !email || !address || !city || !state || !pincode) {
+                showCheckoutError("Please fill in all required fields.");
+                return;
+            }
+
+            // Simple validation
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showCheckoutError("Please enter a valid email address.");
+                return;
+            }
+
+            const cleanPhone = phone.replace(/\D/g, "");
+            if (cleanPhone.length < 10) {
+                showCheckoutError("Please enter a valid 10-digit mobile number.");
+                return;
+            }
+
+            const cleanPincode = pincode.replace(/\D/g, "");
+            if (cleanPincode.length < 6) {
+                showCheckoutError("Please enter a valid 6-digit PIN code.");
+                return;
+            }
+
+            // Hide error feedback
+            if (checkoutErrorFeedback) checkoutErrorFeedback.classList.add("d-none");
+
+            // Calculate total before clearing cart
+            const orderTotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+            const orderId = `MRG-IND-${Math.floor(10000 + Math.random() * 90000)}`;
+
+            // Populate Success View
+            const successOrderId = document.getElementById("successOrderId");
+            const successCustomerName = document.getElementById("successCustomerName");
+            const successCustomerPhone = document.getElementById("successCustomerPhone");
+            const successCustomerAddress = document.getElementById("successCustomerAddress");
+            const successPaymentMethod = document.getElementById("successPaymentMethod");
+            const successOrderTotal = document.getElementById("successOrderTotal");
+
+            if (successOrderId) successOrderId.textContent = orderId;
+            if (successCustomerName) successCustomerName.textContent = fullName;
+            if (successCustomerPhone) successCustomerPhone.textContent = `+91 ${cleanPhone}`;
+            if (successCustomerAddress) successCustomerAddress.textContent = `${address}, ${city}, ${state} - ${cleanPincode}`;
+            if (successPaymentMethod) successPaymentMethod.textContent = paymentMethod;
+            if (successOrderTotal) successOrderTotal.textContent = `₹${orderTotal.toFixed(2)}`;
+
+            // Switch to Success Screen
+            if (checkoutFormView) checkoutFormView.classList.add("d-none");
+            if (checkoutSuccessView) checkoutSuccessView.classList.remove("d-none");
+
+            // Clear Cart
+            cartItems = [];
+            renderCart();
+            checkoutForm.reset();
+        });
+    }
+
+    function showCheckoutError(msg) {
+        if (checkoutErrorFeedback) {
+            checkoutErrorFeedback.textContent = msg;
+            checkoutErrorFeedback.classList.remove("d-none");
+        }
+    }
+
+    // When checkout modal closes, reset back to form view
+    if (checkoutModalEl) {
+        checkoutModalEl.addEventListener("hidden.bs.modal", () => {
+            if (checkoutFormView) checkoutFormView.classList.remove("d-none");
+            if (checkoutSuccessView) checkoutSuccessView.classList.add("d-none");
+            if (checkoutErrorFeedback) checkoutErrorFeedback.classList.add("d-none");
         });
     }
 

@@ -34,7 +34,8 @@
                     <li class="announcement-item">
                         <span class="announcement-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M11 20A9 9 0 0 1 2.37 8.57 9 9 0 0 1 12 2c5 0 9 4 9 9a9 9 0 0 1-5 8.12M11 20l3.5-3.5M11 20v-7"></path>
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                <polyline points="9 12 11 14 15 10"></polyline>
                             </svg>
                         </span>
                         <span class="announcement-text">100% Authentic Curcuma Caesia</span>
@@ -56,20 +57,24 @@
 
                     <!-- Item 3: Country of Origin -->
                     <li class="announcement-item">
-                        <span class="announcement-icon" aria-hidden="true" style="width: 20px; height: 14px;">
-                            <svg viewBox="0 0 24 16" width="20" height="14" style="border-radius: 1px;">
-                                <rect width="24" height="16" fill="#cc0000"/>
-                                <g fill="#ffffff">
-                                    <rect y="2.28" width="24" height="1.14"/>
-                                    <rect y="4.56" width="24" height="1.14"/>
-                                    <rect y="6.84" width="24" height="1.14"/>
-                                    <rect y="9.12" width="24" height="1.14"/>
-                                    <rect y="11.4" width="24" height="1.14"/>
-                                    <rect y="13.68" width="24" height="1.14"/>
-                                </g>
-                                <rect width="12" height="9.12" fill="#000066"/>
-                                <path d="M 6.5 1.8 A 2.7 2.7 0 1 0 6.5 7.32 A 2.1 2.1 0 1 1 6.5 1.8 Z" fill="#ffcc00"/>
-                                <polygon points="7.5,4.56 8.1,3.4 8.2,4.7 9.4,4.1 8.9,5.3 10.1,5.6 9.1,6.3 10.0,7.2 8.8,7.0 8.9,8.3 8.0,7.2 7.3,8.3 7.4,7.0 6.2,7.2 7.0,6.3 6.0,5.6 7.2,5.3 6.7,4.1 7.8,4.7" fill="#ffcc00"/>
+                        <span class="announcement-icon d-inline-flex align-items-center" aria-hidden="true" style="width: 20px; height: 14px;">
+                            <svg class="flag-svg" viewBox="0 0 28 14" width="20" height="12" aria-hidden="true">
+                                <!-- Red background -->
+                                <rect width="28" height="14" fill="#cc0000"/>
+                                <!-- 7 White stripes (14 total stripes) -->
+                                <rect y="1" width="28" height="1" fill="#ffffff"/>
+                                <rect y="3" width="28" height="1" fill="#ffffff"/>
+                                <rect y="5" width="28" height="1" fill="#ffffff"/>
+                                <rect y="7" width="28" height="1" fill="#ffffff"/>
+                                <rect y="9" width="28" height="1" fill="#ffffff"/>
+                                <rect y="11" width="28" height="1" fill="#ffffff"/>
+                                <rect y="13" width="28" height="1" fill="#ffffff"/>
+                                <!-- Blue Canton (8 stripes height = 8, width = 14) -->
+                                <rect width="14" height="8" fill="#000066"/>
+                                <!-- Yellow Crescent -->
+                                <path d="M 6.8 1.4 A 2.6 2.6 0 1 0 6.8 6.6 A 2.1 2.1 0 1 1 6.8 1.4 Z" fill="#ffcc00"/>
+                                <!-- Yellow 14-Point Star -->
+                                <polygon points="9.2,2.3 9.6,3.2 10.5,2.7 10.3,3.6 11.2,3.5 10.6,4.2 11.3,4.7 10.4,4.9 10.8,5.8 10,5.4 9.9,6.3 9.3,5.6 8.7,6.2 8.9,5.3 8,5.4 8.6,4.7 7.8,4.3 8.7,3.9 8.3,3.1 9.1,3.5" fill="#ffcc00"/>
                             </svg>
                         </span>
                         <span class="announcement-text">Made in Malaysia</span>
@@ -1776,6 +1781,223 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-2xl rounded-4 overflow-hidden">
+                
+                <!-- Modal Header -->
+                <div class="modal-header bg-cream border-bottom px-4 py-3 align-items-center">
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="checkout-header-icon d-flex align-items-center justify-content-center rounded-circle" style="width: 36px; height: 36px; background-color: rgba(113, 0, 0, 0.1);">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h5 class="modal-title font-serif fw-bold text-dark mb-0" id="checkoutModalLabel">Complete Your Order</h5>
+                            <span class="text-muted fs-8">100% Safe &amp; Encrypted Checkout</span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Modal Body: Form View -->
+                <div class="modal-body p-4" id="checkoutFormView">
+                    <form id="checkoutForm" onsubmit="return false;">
+                        <div class="row g-4">
+                            
+                            <!-- Left Col: Client & Shipping Details -->
+                            <div class="col-12 col-lg-7">
+                                <h6 class="fw-bold text-dark font-sans text-uppercase fs-7 letter-spacing-1 mb-3 pb-2 border-bottom d-flex align-items-center gap-2">
+                                    <span>1. Shipping &amp; Client Details</span>
+                                </h6>
+
+                                <div class="row g-3">
+                                    <!-- Full Name -->
+                                    <div class="col-12">
+                                        <label for="clientFullName" class="form-label fs-8 fw-bold text-dark mb-1">Full Name <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control rounded-3 py-2 px-3 fs-7" id="clientFullName" placeholder="e.g. Ramesh Sharma" required>
+                                    </div>
+
+                                    <!-- Phone Number / WhatsApp -->
+                                    <div class="col-12 col-sm-6">
+                                        <label for="clientPhone" class="form-label fs-8 fw-bold text-dark mb-1">Phone / WhatsApp <span class="text-danger">*</span></label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light border-end-0 fs-8 fw-semibold text-muted">+91</span>
+                                            <input type="tel" class="form-control rounded-end-3 py-2 px-3 fs-7" id="clientPhone" placeholder="98765 43210" pattern="[0-9]{10}" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Email Address -->
+                                    <div class="col-12 col-sm-6">
+                                        <label for="clientEmail" class="form-label fs-8 fw-bold text-dark mb-1">Email Address <span class="text-danger">*</span></label>
+                                        <input type="email" class="form-control rounded-3 py-2 px-3 fs-7" id="clientEmail" placeholder="name@example.com" required>
+                                    </div>
+
+                                    <!-- Delivery Street Address -->
+                                    <div class="col-12">
+                                        <label for="clientAddress" class="form-label fs-8 fw-bold text-dark mb-1">Delivery Address (House / Flat / Street) <span class="text-danger">*</span></label>
+                                        <textarea class="form-control rounded-3 py-2 px-3 fs-7" id="clientAddress" rows="2" placeholder="House / Flat No., Street, Landmark" required></textarea>
+                                    </div>
+
+                                    <!-- City -->
+                                    <div class="col-12 col-sm-4">
+                                        <label for="clientCity" class="form-label fs-8 fw-bold text-dark mb-1">City <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control rounded-3 py-2 px-3 fs-7" id="clientCity" placeholder="City" required>
+                                    </div>
+
+                                    <!-- State -->
+                                    <div class="col-12 col-sm-4">
+                                        <label for="clientState" class="form-label fs-8 fw-bold text-dark mb-1">State <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control rounded-3 py-2 px-3 fs-7" id="clientState" placeholder="State" required>
+                                    </div>
+
+                                    <!-- PIN Code -->
+                                    <div class="col-12 col-sm-4">
+                                        <label for="clientPincode" class="form-label fs-8 fw-bold text-dark mb-1">PIN Code <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control rounded-3 py-2 px-3 fs-7" id="clientPincode" placeholder="600001" maxlength="6" required>
+                                    </div>
+                                </div>
+
+                                <!-- Payment Method Selector -->
+                                <h6 class="checkout-block-title fw-bold text-dark font-sans text-uppercase fs-7 letter-spacing-1 mt-4 mb-3 pb-2 border-bottom">
+                                    <span>2. Payment Method</span>
+                                </h6>
+
+                                <div class="row g-2">
+                                    <!-- Cash on Delivery -->
+                                    <div class="col-12 col-sm-6">
+                                        <div class="payment-option-card p-3 rounded-3 border h-100 position-relative cursor-pointer d-flex align-items-start gap-2.5">
+                                            <input class="form-check-input mt-1 flex-shrink-0" type="radio" name="paymentMethod" id="paymentCOD" value="Cash on Delivery (COD)" checked>
+                                            <label class="form-check-label fw-bold text-dark fs-7 cursor-pointer m-0" for="paymentCOD">
+                                                Cash on Delivery
+                                                <small class="d-block text-success fw-semibold fs-8 mt-0.5">✓ Pay upon receipt</small>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Online UPI / Cards -->
+                                    <div class="col-12 col-sm-6">
+                                        <div class="payment-option-card p-3 rounded-3 border h-100 position-relative cursor-pointer d-flex align-items-start gap-2.5">
+                                            <input class="form-check-input mt-1 flex-shrink-0" type="radio" name="paymentMethod" id="paymentOnline" value="UPI / Card / Net Banking">
+                                            <label class="form-check-label fw-bold text-dark fs-7 cursor-pointer m-0" for="paymentOnline">
+                                                Online Payment
+                                                <small class="d-block text-muted fs-8 mt-0.5">UPI, Cards, Net Banking</small>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Right Col: Order Summary & Confirmation Button -->
+                            <div class="col-12 col-lg-5">
+                                <div class="checkout-summary-card p-4 rounded-4 bg-cream border">
+                                    <h6 class="checkout-block-title fw-bold text-dark font-sans text-uppercase fs-7 letter-spacing-1 mb-3 pb-2 border-bottom">
+                                        Order Summary
+                                    </h6>
+
+                                    <!-- Itemized List -->
+                                    <div class="checkout-items-list mb-3" id="checkoutModalItems">
+                                        <!-- Dynamically injected via JS -->
+                                    </div>
+
+                                    <!-- Subtotals & Shipping -->
+                                    <div class="border-top pt-2">
+                                        <div class="d-flex justify-content-between fs-8 text-secondary mb-1.5">
+                                            <span>Subtotal</span>
+                                            <span class="fw-semibold text-dark" id="checkoutModalSubtotal">₹0.00</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between fs-8 text-secondary mb-2">
+                                            <span>Express Shipping</span>
+                                            <span class="badge bg-success-subtle text-success fw-bold px-2 py-1 fs-8">FREE</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between fs-6 fw-bold text-dark border-top pt-2 mt-1">
+                                            <span>Total Amount</span>
+                                            <span class="text-primary-red fs-5" id="checkoutModalTotal">₹0.00</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Confirm Button & Guarantees -->
+                                    <div class="mt-4">
+                                        <div id="checkoutErrorFeedback" class="alert alert-danger py-2 fs-8 mb-2 d-none"></div>
+                                        <button type="submit" class="btn btn-primary-red w-100 py-3 text-white fw-bold tracking-wider text-uppercase rounded-3 shadow d-inline-flex align-items-center justify-content-center gap-2" id="confirmOrderBtn">
+                                            <span>CONFIRM ORDER</span>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="flex-shrink-0">
+                                                <polyline points="20 6 9 17 4 12"></polyline>
+                                            </svg>
+                                        </button>
+                                        <div class="text-center mt-2.5">
+                                            <span class="text-muted fs-8">
+                                                🔒 Guaranteed 100% Authentic Curcuma Caesia
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal Body: Order Success View (Hidden by default) -->
+                <div class="modal-body p-4 p-md-5 text-center d-none" id="checkoutSuccessView">
+                    <div class="order-success-icon mx-auto mb-3 d-flex align-items-center justify-content-center rounded-circle bg-success text-white" style="width: 64px; height: 64px;">
+                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                    </div>
+                    
+                    <h4 class="font-serif fw-bold text-dark mb-1">Order Confirmed!</h4>
+                    <p class="text-muted fs-7 mb-4">Thank you for your order. We are preparing your fresh Malaysian Royal Gold Black Turmeric batch.</p>
+
+                    <!-- Order Receipt Box -->
+                    <div class="bg-cream rounded-4 p-4 text-start max-w-md mx-auto border mb-4">
+                        <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                            <span class="fs-8 text-muted text-uppercase fw-bold">Order ID</span>
+                            <span class="fs-7 fw-bold font-monospace text-primary-red" id="successOrderId">MRG-84920</span>
+                        </div>
+                        <div class="d-flex justify-content-between fs-8 text-secondary mb-2">
+                            <span>Customer Name:</span>
+                            <strong class="text-dark" id="successCustomerName">--</strong>
+                        </div>
+                        <div class="d-flex justify-content-between fs-8 text-secondary mb-2">
+                            <span>Phone Number:</span>
+                            <strong class="text-dark" id="successCustomerPhone">--</strong>
+                        </div>
+                        <div class="d-flex justify-content-between fs-8 text-secondary mb-2">
+                            <span>Delivery To:</span>
+                            <strong class="text-dark text-end ms-3" id="successCustomerAddress">--</strong>
+                        </div>
+                        <div class="d-flex justify-content-between fs-8 text-secondary mb-2">
+                            <span>Payment Method:</span>
+                            <strong class="text-dark" id="successPaymentMethod">Cash on Delivery</strong>
+                        </div>
+                        <div class="d-flex justify-content-between fs-8 text-secondary mb-2 border-top pt-2">
+                            <span>Estimated Delivery:</span>
+                            <strong class="text-success">3 - 5 Business Days</strong>
+                        </div>
+                        <div class="d-flex justify-content-between fs-6 fw-bold text-dark border-top pt-2 mt-2">
+                            <span>Total Paid / Due:</span>
+                            <span class="text-primary-red fs-5" id="successOrderTotal">₹0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <button type="button" class="btn btn-primary-red px-4 py-2.5 rounded-pill fw-bold" data-bs-dismiss="modal">
+                            Continue Shopping
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

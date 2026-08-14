@@ -98,7 +98,7 @@ main {
     color: var(--color-gold-light);
 }
 
-.announcement-icon svg {
+.announcement-icon svg:not(.flag-svg) {
     width: 100%;
     height: 100%;
     fill: none;
@@ -106,6 +106,14 @@ main {
     stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
+}
+
+.announcement-icon .flag-svg {
+    width: 20px;
+    height: 12px;
+    border-radius: 2px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+    display: block;
 }
 
 .announcement-text {
@@ -1852,3 +1860,94 @@ main {
 [id] {
     scroll-margin-top: calc(var(--header-height, 80px) + 16px);
 }
+
+/* --------------------------------------------------------------------------
+   25. Checkout Modal Styles
+   -------------------------------------------------------------------------- */
+.shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.checkout-block-title {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px;
+    color: #171717;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.checkout-summary-card {
+    background-color: var(--color-cream);
+    border: 1px solid rgba(229, 213, 180, 0.8) !important;
+}
+
+.payment-option-card {
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+    border: 1.5px solid #e0d8c8 !important;
+}
+
+.payment-option-card:hover {
+    border-color: #710000 !important;
+    background-color: #fffaf5;
+}
+
+.payment-option-card:has(.form-check-input:checked) {
+    border-color: #710000 !important;
+    background-color: #fff6f6;
+    box-shadow: 0 0 0 1px #710000;
+}
+
+.payment-option-card .form-check-input {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.payment-option-card .form-check-input:checked {
+    background-color: #710000;
+    border-color: #710000;
+}
+
+#checkoutModal .form-control {
+    border-color: #dcd3c1;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#checkoutModal .form-control:focus {
+    border-color: #710000;
+    box-shadow: 0 0 0 3px rgba(113, 0, 0, 0.1);
+}
+
+.checkout-items-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.checkout-mini-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.checkout-mini-item:last-child {
+    border-bottom: none;
+}
+
+.max-w-md {
+    max-width: 480px;
+}
+
+.order-success-icon {
+    box-shadow: 0 10px 25px rgba(25, 135, 84, 0.35);
+    animation: successPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes successPop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
