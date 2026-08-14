@@ -87,7 +87,7 @@
                                 <circle cx="18.5" cy="18.5" r="2.5"></circle>
                             </svg>
                         </span>
-                        <span class="announcement-text">Free Shipping Over RM250</span>
+                        <span class="announcement-text">Free Shipping Over ₹250</span>
                     </li>
                 </ul>
             </div>
@@ -107,7 +107,7 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
                     <ul class="navbar-nav align-items-center gap-xl-4 gap-lg-3">
                         <li class="nav-item">
-                            <a class="nav-link custom-nav-link" href="#shop">SHOP</a>
+                            <a class="nav-link custom-nav-link" href="#bundle">SHOP</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link custom-nav-link" href="#story">OUR STORY</a>
@@ -122,7 +122,7 @@
                             <a class="nav-link custom-nav-link" href="#faq">FAQ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link custom-nav-link" href="#contact">CONTACT</a>
+                            <a class="nav-link custom-nav-link" href="#footer">CONTACT</a>
                         </li>
                     </ul>
                 </div>
@@ -178,7 +178,7 @@
         <div class="offcanvas-body">
             <ul class="nav flex-column gap-3 fs-6">
                 <li class="nav-item">
-                    <a class="nav-link text-dark fw-semibold text-uppercase tracking-wider" href="#shop" data-bs-dismiss="offcanvas">SHOP</a>
+                    <a class="nav-link text-dark fw-semibold text-uppercase tracking-wider" href="#bundle" data-bs-dismiss="offcanvas">SHOP</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark fw-semibold text-uppercase tracking-wider" href="#story" data-bs-dismiss="offcanvas">OUR STORY</a>
@@ -193,7 +193,7 @@
                     <a class="nav-link text-dark fw-semibold text-uppercase tracking-wider" href="#faq" data-bs-dismiss="offcanvas">FAQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark fw-semibold text-uppercase tracking-wider" href="#contact" data-bs-dismiss="offcanvas">CONTACT</a>
+                    <a class="nav-link text-dark fw-semibold text-uppercase tracking-wider" href="#footer" data-bs-dismiss="offcanvas">CONTACT</a>
                 </li>
             </ul>
         </div>
@@ -337,7 +337,7 @@
 
                         <!-- Action CTAs -->
                         <div class="hero-cta-buttons d-flex flex-wrap align-items-center gap-3 mb-4">
-                            <a href="#shop" class="btn btn-hero-primary d-inline-flex align-items-center justify-content-center gap-2 shadow">
+                            <a href="#bundle" class="btn btn-hero-primary d-inline-flex align-items-center justify-content-center gap-2 shadow">
                                 <span>SHOP NOW</span>
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -723,10 +723,10 @@
 
                             <!-- Action Buttons -->
                             <div class="science-cta-buttons d-flex flex-wrap align-items-center gap-3">
-                                <a href="#purity-report" class="btn btn-science-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                <a href="#certifications" class="btn btn-science-primary shadow-sm">
                                     VIEW PURITY REPORT
                                 </a>
-                                <a href="#comparison-report" class="btn btn-science-secondary" data-bs-toggle="modal" data-bs-target="#searchModal">
+                                <a href="#certifications" class="btn btn-science-secondary">
                                     VIEW COMPARISON REPORT
                                 </a>
                             </div>
@@ -1128,7 +1128,7 @@
                                 </div>
                             </div>
                             <div>
-                                <a href="#all-reviews" class="btn btn-rating-gold rounded-pill d-inline-flex align-items-center gap-2">
+                                <a href="#reviews" class="btn btn-rating-gold rounded-pill d-inline-flex align-items-center gap-2">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2">
                                         <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                                         <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
@@ -1244,15 +1244,15 @@
                                 </div>
                                 
                                 <div class="bundle-price-wrap mb-3">
-                                    <div class="bundle-price font-serif fw-bold text-dark fs-3">RM159.90</div>
-                                    <span class="savings-tag text-danger fw-bold d-block fs-8 mb-1 invisible">( Save RM0.00 )</span>
+                                    <div class="bundle-price font-serif fw-bold text-dark fs-3">₹159.90</div>
+                                    <span class="savings-tag text-danger fw-bold d-block fs-8 mb-1 invisible">( Save ₹0.00 )</span>
                                     <span class="price-subtext text-muted fs-8">per bottle</span>
                                 </div>
                                 
-                                <button class="btn btn-bundle-select w-100 py-2.5 rounded-3 fw-bold mb-3" onclick="updateCartCount(1)">SELECT</button>
+                                <button class="btn btn-bundle-select w-100 py-2.5 rounded-3 fw-bold mb-3" onclick="addToCart('Black Turmeric Capsules - 1 Bottle', 1, 159.90)">SELECT</button>
                             </div>
                             <div class="bundle-total-footer border-top pt-2">
-                                <span class="total-text fw-bold text-dark fs-7">Total: RM159.90</span>
+                                <span class="total-text fw-bold text-dark fs-7">Total: ₹159.90</span>
                             </div>
                         </div>
                     </div>
@@ -1269,15 +1269,15 @@
                                 </div>
                                 
                                 <div class="bundle-price-wrap mb-3">
-                                    <div class="bundle-price font-serif fw-bold text-dark fs-3">RM299.90</div>
-                                    <span class="savings-tag text-danger fw-bold d-block fs-8 mb-1">( Save RM19.90 )</span>
-                                    <span class="price-subtext text-muted fs-8">RM149.95 per bottle</span>
+                                    <div class="bundle-price font-serif fw-bold text-dark fs-3">₹299.90</div>
+                                    <span class="savings-tag text-danger fw-bold d-block fs-8 mb-1">( Save ₹19.90 )</span>
+                                    <span class="price-subtext text-muted fs-8">₹149.95 per bottle</span>
                                 </div>
                                 
-                                <button class="btn btn-bundle-select w-100 py-2.5 rounded-3 fw-bold mb-3" onclick="updateCartCount(2)">SELECT</button>
+                                <button class="btn btn-bundle-select w-100 py-2.5 rounded-3 fw-bold mb-3" onclick="addToCart('Black Turmeric Capsules - 2 Bottles', 2, 299.90)">SELECT</button>
                             </div>
                             <div class="bundle-total-footer border-top pt-2">
-                                <span class="total-text fw-bold text-dark fs-7">Total: RM299.90</span>
+                                <span class="total-text fw-bold text-dark fs-7">Total: ₹299.90</span>
                             </div>
                         </div>
                     </div>
@@ -1300,15 +1300,15 @@
                                 </div>
                                 
                                 <div class="bundle-price-wrap mb-3">
-                                    <div class="bundle-price font-serif fw-bold text-dark fs-3">RM399.90</div>
-                                    <span class="savings-tag text-danger fw-bold d-block fs-8 mb-1">( Save RM79.80 )</span>
-                                    <span class="price-subtext text-muted fs-8">RM133.30 per bottle</span>
+                                    <div class="bundle-price font-serif fw-bold text-dark fs-3">₹399.90</div>
+                                    <span class="savings-tag text-danger fw-bold d-block fs-8 mb-1">( Save ₹79.80 )</span>
+                                    <span class="price-subtext text-muted fs-8">₹133.30 per bottle</span>
                                 </div>
                                 
-                                <button class="btn btn-bundle-select w-100 py-2.5 rounded-3 fw-bold mb-3" onclick="updateCartCount(3)">SELECT</button>
+                                <button class="btn btn-bundle-select w-100 py-2.5 rounded-3 fw-bold mb-3" onclick="addToCart('Black Turmeric Capsules - 3 Bottles', 3, 399.90)">SELECT</button>
                             </div>
                             <div class="bundle-total-footer border-top pt-2">
-                                <span class="total-text fw-bold text-dark fs-7">Total: RM399.90</span>
+                                <span class="total-text fw-bold text-dark fs-7">Total: ₹399.90</span>
                             </div>
                         </div>
                     </div>
@@ -1327,7 +1327,7 @@
                                 </div>
                                 <div>
                                     <h4 class="trust-title font-sans fw-bold text-dark fs-6 mb-0">Free Shipping</h4>
-                                    <span class="trust-subtext text-muted fs-8">For orders over RM250</span>
+                                    <span class="trust-subtext text-muted fs-8">For orders over ₹250</span>
                                 </div>
                             </div>
 
@@ -1404,7 +1404,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">What is Black Turmeric (Curcuma Caesia)?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq1" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq1" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     Curcuma Caesia, commonly known as Black Turmeric, is a rare perennial herb from the Zingiberaceae family characterized by a deep bluish-purple rhizome rich in natural bioactive curcuminoids and antioxidants.
                                 </div>
@@ -1417,7 +1417,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">How do I take Black Turmeric capsules?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq2" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq2" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     Take 1 to 2 vegetable capsules daily with water, preferably after a meal or as recommended by your healthcare practitioner.
                                 </div>
@@ -1430,7 +1430,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">Is it safe to take daily?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq3" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq3" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     Yes, our 100% pure Curcuma Caesia is free from fillers and additives, making it safe for daily dietary supplementation.
                                 </div>
@@ -1443,7 +1443,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">Are there any side effects?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq4" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq4" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     Curcuma Caesia is a natural botanical herb with no known adverse side effects when consumed according to recommended dosages.
                                 </div>
@@ -1461,7 +1461,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">Where is it grown?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq5" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq5" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     Our Black Turmeric is proudly farm-grown and harvested in fertile agricultural regions of Johor, Malaysia under myGAP certified practices.
                                 </div>
@@ -1474,7 +1474,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">Is it lab tested?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq6" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq6" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     Yes! Every batch undergoes rigorous third-party laboratory testing for heavy metals, pesticides, microbial safety, and bioactive purity.
                                 </div>
@@ -1487,7 +1487,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">What makes Malaysian Royal Gold different?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="1.8"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq7" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq7" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     We offer 100% single-ingredient Curcuma Caesia with zero fillers, backed by ISO, HACCP, and GMP manufacturing standards.
                                 </div>
@@ -1500,7 +1500,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">Is this a medicine?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq8" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq8" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     No, it is a premium natural botanical health supplement intended to support general wellness and vitality.
                                 </div>
@@ -1518,9 +1518,9 @@
                                 <span class="faq-question fw-bold text-dark fs-7">How much is shipping?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq9" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq9" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
-                                    We offer FREE shipping across Malaysia for orders above RM250. Standard shipping rates apply for orders below RM250.
+                                    We offer FREE shipping for orders above ₹250. Standard shipping rates apply for orders below ₹250.
                                 </div>
                             </div>
                         </div>
@@ -1531,7 +1531,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">How long does delivery take?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq10" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq10" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     Delivery typically takes 2 to 4 working days for Peninsular Malaysia and 3 to 6 working days for East Malaysia.
                                 </div>
@@ -1544,7 +1544,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">What is your return policy?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq11" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq11" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     We offer a 30-day money-back return policy for unopened products in original packaging. Contact support to initiate a return.
                                 </div>
@@ -1557,7 +1557,7 @@
                                 <span class="faq-question fw-bold text-dark fs-7">What payment methods do you accept?</span>
                                 <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#710000" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                             </button>
-                            <div id="faq12" class="collapse" data-bs-parent="#faqAccordion">
+                            <div id="faq12" class="collapse">
                                 <div class="faq-answer p-3 bg-white text-secondary fs-7 border-top">
                                     We accept Online Banking (FPX), major Credit/Debit Cards (Visa/Mastercard), and E-wallets (Touch 'n Go, GrabPay).
                                 </div>
@@ -1600,7 +1600,7 @@
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                             </svg>
-                            BUY NOW – RM159.90
+                            BUY NOW – ₹159.90
                         </a>
                         <div class="security-tag d-flex align-items-center justify-content-center justify-content-lg-end gap-1.5 fs-8 text-gold-light">
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#e5c158" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
@@ -1658,7 +1658,7 @@
                         <div class="row g-3">
                             
                             <!-- SHOP -->
-                            <div class="col-6 col-sm-4 col-md-2.4">
+                            <div class="col-6 col-sm-4 col-lg">
                                 <h5 class="footer-heading font-sans fw-extrabold text-uppercase text-dark fs-8 letter-spacing-1 mb-3">SHOP</h5>
                                 <ul class="list-unstyled footer-links-list fs-7">
                                     <li class="mb-2"><a href="#bundle" class="footer-link text-muted text-decoration-none">Black Turmeric Capsules</a></li>
@@ -1668,7 +1668,7 @@
                             </div>
 
                             <!-- LEARN -->
-                            <div class="col-6 col-sm-4 col-md-2.4">
+                            <div class="col-6 col-sm-4 col-lg">
                                 <h5 class="footer-heading font-sans fw-extrabold text-uppercase text-dark fs-8 letter-spacing-1 mb-3">LEARN</h5>
                                 <ul class="list-unstyled footer-links-list fs-7">
                                     <li class="mb-2"><a href="#why-us" class="footer-link text-muted text-decoration-none">Why Malaysian Royal Gold</a></li>
@@ -1679,7 +1679,7 @@
                             </div>
 
                             <!-- SUPPORT -->
-                            <div class="col-6 col-sm-4 col-md-2.4">
+                            <div class="col-6 col-sm-4 col-lg">
                                 <h5 class="footer-heading font-sans fw-extrabold text-uppercase text-dark fs-8 letter-spacing-1 mb-3">SUPPORT</h5>
                                 <ul class="list-unstyled footer-links-list fs-7">
                                     <li class="mb-2"><a href="#footer" class="footer-link text-muted text-decoration-none">Contact Us</a></li>
@@ -1690,7 +1690,7 @@
                             </div>
 
                             <!-- COMPANY -->
-                            <div class="col-6 col-sm-4 col-md-2.4">
+                            <div class="col-6 col-sm-4 col-lg">
                                 <h5 class="footer-heading font-sans fw-extrabold text-uppercase text-dark fs-8 letter-spacing-1 mb-3">COMPANY</h5>
                                 <ul class="list-unstyled footer-links-list fs-7">
                                     <li class="mb-2"><a href="#story" class="footer-link text-muted text-decoration-none">Our Story</a></li>
@@ -1701,7 +1701,7 @@
                             </div>
 
                             <!-- CONTACT US -->
-                            <div class="col-12 col-sm-4 col-md-2.4">
+                            <div class="col-12 col-sm-4 col-lg">
                                 <h5 class="footer-heading font-sans fw-extrabold text-uppercase text-dark fs-8 letter-spacing-1 mb-3">CONTACT US</h5>
                                 <ul class="list-unstyled footer-contact-list fs-7 text-muted">
                                     <li class="mb-2">WhatsApp: <a href="https://wa.me/60123456789" class="text-dark fw-bold text-decoration-none">+60 12-345 6789</a></li>
@@ -1760,16 +1760,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <form>
+                    <form id="accountSignInForm" onsubmit="return false;">
                         <div class="mb-3">
                             <label for="loginEmail" class="form-label small fw-semibold">Email address</label>
-                            <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com">
+                            <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" required>
                         </div>
                         <div class="mb-3">
                             <label for="loginPassword" class="form-label small fw-semibold">Password</label>
-                            <input type="password" class="form-control" id="loginPassword" placeholder="••••••••">
+                            <input type="password" class="form-control" id="loginPassword" placeholder="••••••••" required>
                         </div>
-                        <button type="submit" class="btn btn-primary-red w-100 py-2 text-white fw-semibold">Sign In</button>
+                        <button type="submit" class="btn btn-primary-red w-100 py-2 text-white fw-semibold" id="signInBtn">Sign In</button>
+                        <div id="signInFeedback" class="mt-3 text-center d-none"></div>
+                        <div class="text-center mt-3">
+                            <small class="text-muted">Don't have an account? <a href="#" class="text-primary-red fw-bold text-decoration-none">Create Account</a></small>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1796,7 +1800,7 @@
             <div class="cart-footer border-top pt-3">
                 <div class="d-flex justify-content-between fs-5 fw-semibold mb-3">
                     <span>Subtotal</span>
-                    <span id="cartSubtotal">RM 0.00</span>
+                    <span id="cartSubtotal">₹0.00</span>
                 </div>
                 <button type="button" class="btn btn-primary-red w-100 py-3 text-white fw-bold tracking-wider text-uppercase" disabled id="checkoutBtn">Proceed to Checkout</button>
             </div>
