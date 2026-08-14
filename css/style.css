@@ -1,0 +1,1717 @@
+/* ==========================================================================
+   Curcuma Caesia - Malaysian Royal Gold
+   Stylesheet following AGENT.md design system guidelines
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties / Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+    --color-primary: #710000;
+    --color-primary-dark: #4d0000;
+    --color-gold: #c99525;
+    --color-gold-light: #e3b84b;
+    --color-gold-bright: #ffd700;
+    --color-cream: #fbf8f1;
+    --color-white: #ffffff;
+    --color-text: #171717;
+    --color-muted: #6b6b6b;
+    --color-border: #e5d5b4;
+    --color-divider: rgba(227, 184, 75, 0.4);
+
+    --font-serif: 'Cinzel', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: var(--font-serif);
+    --font-body: var(--font-sans);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Styles
+   -------------------------------------------------------------------------- */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-white);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    position: relative;
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   3. Announcement Bar Component
+   -------------------------------------------------------------------------- */
+.announcement-bar {
+    background: linear-gradient(90deg, #600000 0%, #760000 50%, #600000 100%);
+    color: var(--color-white);
+    padding: 5px 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(201, 149, 37, 0.25);
+    position: relative;
+    z-index: 1030;
+}
+
+.announcement-bar .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.announcement-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.announcement-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 2px 18px;
+    white-space: nowrap;
+}
+
+.announcement-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--color-gold-light);
+}
+
+.announcement-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.announcement-text {
+    color: var(--color-white);
+    line-height: 1;
+}
+
+.announcement-divider {
+    color: var(--color-divider);
+    font-weight: 300;
+    font-size: 0.85rem;
+    user-select: none;
+}
+
+/* Responsive Handling for Mobile */
+@media (max-width: 991.98px) {
+    .announcement-bar {
+        padding: 7px 0;
+        font-size: 0.72rem;
+    }
+    
+    .announcement-item {
+        padding: 2px 10px;
+        gap: 6px;
+    }
+    
+    .announcement-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .announcement-bar {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    
+    .announcement-bar::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .announcement-list {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 0 10px;
+        min-width: max-content;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. Header & Luxury Navbar Component
+   -------------------------------------------------------------------------- */
+.header-main {
+    border-top: 4px solid var(--color-primary);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    background-color: var(--color-white);
+    z-index: 1020;
+}
+
+.luxury-navbar {
+    background-color: var(--color-white);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Brand Logo Image Styling */
+.logo-icon-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-text-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-brand:hover .logo-icon-img {
+    transform: scale(1.04);
+}
+
+/* Center Navigation Links */
+.custom-nav-link {
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    color: #222222 !important;
+    padding: 6px 0 !important;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.custom-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.custom-nav-link:hover::after,
+.custom-nav-link.active::after {
+    width: 100%;
+}
+
+.custom-nav-link:hover {
+    color: var(--color-primary) !important;
+}
+
+/* Right Action Buttons & Cart Badge */
+.action-icon-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    color: #222222;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-icon-btn:hover {
+    color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+.cart-icon-wrapper {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    background-color: #b00000;
+    color: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: 1.5px solid var(--color-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Utility Helpers */
+.font-serif {
+    font-family: var(--font-serif) !important;
+}
+
+.btn-primary-red {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: var(--color-white) !important;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary-red:hover {
+    background-color: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark) !important;
+}
+
+.text-primary-red {
+    color: var(--color-primary) !important;
+}
+
+.tracking-wider {
+    letter-spacing: 1.5px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Responsive adjustments for Logo & Navbar */
+@media (max-width: 991.98px) {
+    .luxury-navbar {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+    
+    .logo-icon-img {
+        height: 42px;
+    }
+    
+    .logo-text-img {
+        height: 34px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero Section Component
+   -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   5. Hero Section Component & Reference Design System
+   -------------------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 120px);
+    background-color: #fdfaf6;
+    overflow: hidden;
+}
+
+.hero-bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+    display: block;
+}
+
+.hero-content-container {
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.min-vh-hero {
+    min-height: calc(100vh - 220px);
+}
+
+/* Eyebrow Header */
+.hero-eyebrow .eyebrow-text {
+    font-family: var(--font-sans);
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.hero-eyebrow .eyebrow-line {
+    display: inline-block;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+    border-radius: 2px;
+}
+
+/* Main Headline */
+.hero-headline {
+    line-height: 1.06;
+}
+
+.headline-red {
+    font-family: var(--font-serif);
+    color: #710000;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+.headline-gold {
+    font-family: var(--font-serif);
+    color: #c99525;
+    background: linear-gradient(135deg, #c99525 0%, #d4af37 40%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+}
+
+/* Pill Badges Container */
+.hero-pill-badges {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(201, 149, 37, 0.35);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: #222222;
+}
+
+.text-gold {
+    color: #c99525;
+}
+
+.badge-divider {
+    color: rgba(201, 149, 37, 0.4);
+    user-select: none;
+    font-weight: 300;
+}
+
+/* Description Text */
+.hero-description {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    color: #4a4a4a;
+    max-width: 540px;
+    line-height: 1.65;
+}
+
+/* 4 Circular Feature Cards */
+.feature-circle-card {
+    width: 95px;
+}
+
+.feature-icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 1.5px solid rgba(201, 149, 37, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-circle-card:hover .feature-icon-circle {
+    transform: translateY(-3px);
+    border-color: #710000;
+}
+
+.feature-circle-title {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 800;
+    color: #710000;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+    display: block;
+    margin-top: 4px;
+}
+
+.feature-circle-sub {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    font-weight: 700;
+    color: #171717;
+    letter-spacing: 0.4px;
+    line-height: 1.1;
+    display: block;
+}
+
+.feature-circle-mini {
+    font-family: var(--font-sans);
+    font-size: 7.5px;
+    font-weight: 600;
+    color: #666666;
+    letter-spacing: 0.3px;
+    line-height: 1.1;
+    display: block;
+    margin-top: 1px;
+}
+
+/* Ratings & Reviews */
+.star-gold {
+    color: #ffb400;
+    font-size: 19px;
+}
+
+.rating-score {
+    font-family: var(--font-sans);
+    font-size: 15px;
+}
+
+.rating-reviews-count {
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    letter-spacing: 0.5px;
+}
+
+/* Customer Avatars Stack */
+.customer-avatars-stack {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    overflow: hidden;
+    margin-left: -10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.avatar-circle:first-child {
+    margin-left: 0;
+}
+
+.avatar-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-badge-count {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #710000;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+/* CTA Buttons */
+.btn-hero-primary {
+    background-color: #710000;
+    color: #ffffff !important;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    padding: 14px 34px;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-hero-primary:hover {
+    background-color: #500000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(113, 0, 0, 0.3);
+}
+
+.btn-hero-secondary {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #c99525 !important;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    padding: 13px 32px;
+    border-radius: 8px;
+    border: 1.5px solid #c99525;
+    transition: all 0.3s ease;
+}
+
+.btn-hero-secondary:hover {
+    background-color: #c99525;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+/* Floating Gold Badge (Right) */
+.trusted-floating-badge {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff 0%, #fcf9f2 100%);
+    border: 3px solid #c99525;
+    box-shadow: 0 12px 35px rgba(201, 149, 37, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+
+.badge-sub-text {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #171717;
+}
+
+.badge-main-number {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 800;
+    color: #c99525;
+    line-height: 1;
+    margin: 2px 0;
+}
+
+.badge-main-title {
+    font-family: var(--font-sans);
+    font-size: 9.5px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #171717;
+    text-transform: uppercase;
+}
+
+.badge-stars {
+    color: #ffb400;
+    font-size: 12px;
+}
+
+/* Bottom Trust Signals Strip */
+.hero-trust-strip {
+    background-color: #ffffff;
+    border: 1px solid rgba(201, 149, 37, 0.35);
+}
+
+.trust-item-text {
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #171717;
+    text-transform: uppercase;
+}
+
+.trust-stamp-badge {
+    background: #710000;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.border-gold-subtle {
+    border-color: rgba(201, 149, 37, 0.35) !important;
+}
+
+/* Responsive adjustments for Hero Section */
+@media (max-width: 1199.98px) {
+    .headline-red,
+    .headline-gold {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .headline-red,
+    .headline-gold {
+        font-size: 2.2rem;
+    }
+    
+    .hero-section {
+        min-height: auto;
+    }
+    
+    .hero-right-col {
+        justify-content: center !important;
+        margin-top: 20px;
+    }
+    
+    .trusted-floating-badge {
+        margin-right: 0;
+        width: 150px;
+        height: 150px;
+    }
+    
+    .badge-main-number {
+        font-size: 22px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   6. Red Feature Strip Component
+   -------------------------------------------------------------------------- */
+.red-feature-strip-section {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+.red-feature-card {
+    background: linear-gradient(135deg, #710000 0%, #880000 50%, #660000 100%);
+    border: 1.5px solid rgba(229, 193, 88, 0.4);
+    border-radius: 14px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 12px 35px rgba(113, 0, 0, 0.25);
+}
+
+.red-strip-col {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 12px;
+}
+
+.red-strip-inner {
+    display: flex;
+    align-items: center;
+}
+
+.red-strip-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.red-strip-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.strip-heading {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.strip-subtext {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #e5c158;
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+.strip-subtext-light {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.red-strip-divider {
+    width: 1px;
+    height: 42px;
+    background-color: rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+}
+
+/* Responsive handling for Red Feature Strip */
+@media (max-width: 991.98px) {
+    .red-feature-card {
+        flex-wrap: wrap;
+        padding: 20px 16px;
+        gap: 16px 0;
+    }
+    
+    .red-strip-col {
+        flex: 0 0 50%;
+        justify-content: flex-start;
+    }
+    
+    .red-strip-divider {
+        display: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .red-strip-col {
+        flex: 0 0 100%;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   7. What Is Curcuma Caesia Section Component (Reference Design Match)
+   -------------------------------------------------------------------------- */
+.about-curcuma-section {
+    background-color: #faf6f0;
+    position: relative;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.eyebrow-text-red {
+    font-family: var(--font-sans);
+    color: #710000;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.eyebrow-line-gold {
+    display: inline-block;
+    width: 35px;
+    height: 2px;
+    background: linear-gradient(90deg, #710000, #c99525);
+    border-radius: 2px;
+}
+
+.about-title {
+    font-family: var(--font-serif);
+    color: #710000 !important;
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.15;
+}
+
+.about-description {
+    font-family: var(--font-sans);
+    font-size: 1.08rem;
+    color: #4a4a4a;
+    line-height: 1.7;
+    max-width: 640px;
+}
+
+.curcuma-roots-img {
+    max-height: 380px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.08));
+    transition: transform 0.4s ease;
+}
+
+.curcuma-roots-image-wrapper:hover .curcuma-roots-img {
+    transform: scale(1.03);
+}
+
+.about-inline-features-row {
+    max-width: 580px;
+    margin-top: 15px;
+}
+
+.inline-feature-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.inline-feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inline-feature-label {
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #333333;
+    line-height: 1.25;
+}
+
+.inline-feature-divider {
+    width: 1px;
+    height: 38px;
+    background-color: #ebdcc4;
+    flex-shrink: 0;
+}
+
+/* Botanical Watermark Backgrounds */
+.botanical-bg-watermark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 260px;
+    height: 420px;
+    opacity: 0.12;
+    pointer-events: none;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.left-watermark {
+    left: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200' fill='none' stroke='%23710000' stroke-width='1.5'%3E%3Cpath d='M50 0 C30 50 10 100 50 200 M50 30 C20 40 10 60 50 80 M50 70 C80 80 90 100 50 120 M50 110 C20 120 10 140 50 160'/%3E%3C/svg%3E");
+}
+
+.right-watermark {
+    right: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200' fill='none' stroke='%23c99525' stroke-width='1.5'%3E%3Cpath d='M50 0 C30 50 10 100 50 200 M50 30 C80 40 90 60 50 80 M50 70 C20 80 10 100 50 120 M50 110 C80 120 90 140 50 160'/%3E%3C/svg%3E");
+}
+
+@media (max-width: 991.98px) {
+    .about-title {
+        font-size: 2.1rem;
+    }
+    
+    .about-inline-features-row {
+        max-width: 100%;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   8. Why Choose Us Section Component
+   -------------------------------------------------------------------------- */
+.why-choose-us-section {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+.why-outer-card {
+    background: #faf3e8;
+    border: 1.5px solid rgba(201, 149, 37, 0.25);
+    border-radius: 20px;
+}
+
+.why-title {
+    font-family: var(--font-serif);
+    color: #710000 !important;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: none !important;
+}
+
+.why-feature-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.why-feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(113, 0, 0, 0.08) !important;
+    border-color: rgba(201, 149, 37, 0.4) !important;
+}
+
+.why-card-title {
+    font-family: var(--font-serif);
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    color: #171717 !important;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.gold-accent-line {
+    width: 45px;
+    height: 2px;
+    background-color: #c99525;
+    border-radius: 1px;
+    margin-top: 3px;
+}
+
+.why-card-desc {
+    font-family: var(--font-sans);
+    font-size: 12px !important;
+    color: #555555 !important;
+    line-height: 1.5;
+}
+
+.gold-accent-line {
+    width: 32px;
+    height: 2px;
+    background-color: #c99525;
+    border-radius: 1px;
+}
+
+.why-card-desc {
+    font-family: var(--font-sans);
+    font-size: 12.5px !important;
+    color: #555555 !important;
+    line-height: 1.5;
+}
+
+@media (max-width: 991.98px) {
+    .why-title {
+        font-size: 2rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   9. Science & Authenticity Section Component
+   -------------------------------------------------------------------------- */
+.science-authenticity-section {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+.science-outer-card {
+    background: #faf3e8;
+    border: 1.5px solid rgba(201, 149, 37, 0.25);
+    border-radius: 20px;
+}
+
+.science-title {
+    font-family: var(--font-serif);
+    color: #710000 !important;
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.15;
+    text-transform: none !important;
+}
+
+.lab-reports-img {
+    max-height: 360px;
+    width: 100%;
+    object-fit: contain;
+    object-position: right center;
+    transition: transform 0.4s ease;
+}
+
+.lab-reports-image-wrapper:hover .lab-reports-img {
+    transform: scale(1.02);
+}
+
+.science-description {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    color: #4a4a4a;
+    line-height: 1.65;
+}
+
+.red-check-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #710000;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checklist-text {
+    font-family: var(--font-sans);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #333333;
+}
+
+.btn-science-primary {
+    background: linear-gradient(135deg, #710000 0%, #900000 100%);
+    color: #ffffff !important;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-science-primary:hover {
+    background: linear-gradient(135deg, #500000 0%, #710000 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(113, 0, 0, 0.3);
+}
+
+.btn-science-secondary {
+    background: transparent;
+    color: #c99525 !important;
+    font-family: var(--font-sans);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    padding: 11px 22px;
+    border-radius: 6px;
+    border: 1.5px solid #c99525;
+    transition: all 0.3s ease;
+}
+
+.btn-science-secondary:hover {
+    background: #c99525;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+.lab-reports-img {
+    max-height: 400px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.06));
+    transition: transform 0.4s ease;
+}
+
+.lab-reports-image-wrapper:hover .lab-reports-img {
+    transform: scale(1.02);
+}
+
+@media (max-width: 991.98px) {
+    .science-title {
+        font-size: 2.1rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   10. Quality Certifications Bar Section Component
+   -------------------------------------------------------------------------- */
+.certifications-bar-section {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+.certifications-outer-card {
+    background: #faf3e8;
+    border: 1.5px solid rgba(201, 149, 37, 0.25);
+    border-radius: 16px;
+}
+
+.cert-col {
+    padding: 4px 8px;
+}
+
+.cert-title-dark {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 800;
+    color: #222222;
+    line-height: 1.15;
+    letter-spacing: 0.3px;
+}
+
+.cert-subtext-bold {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 700;
+    color: #444444;
+    line-height: 1.15;
+    letter-spacing: 0.5px;
+}
+
+.cert-heading {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    font-weight: 800;
+    color: #171717;
+    line-height: 1.15;
+    letter-spacing: 0.3px;
+}
+
+.cert-divider {
+    width: 1px;
+    height: 32px;
+    background-color: rgba(113, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
+@media (max-width: 991.98px) {
+    .certifications-row {
+        justify-content: center !important;
+    }
+    
+    .cert-divider {
+        display: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   11. Farm To Capsule Process Section Component
+   -------------------------------------------------------------------------- */
+.farm-capsule-section {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+.farm-outer-card {
+    background: #faf3e8;
+    border: 1.5px solid rgba(201, 149, 37, 0.25);
+    border-radius: 20px;
+}
+
+.farm-title {
+    font-family: var(--font-serif);
+    font-variant: normal;
+    color: #710000 !important;
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.15;
+    text-transform: none !important;
+}
+
+.farm-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    color: #555555;
+    font-weight: 600;
+}
+
+.farm-steps-pipeline {
+    gap: 8px;
+}
+
+.farm-step-item {
+    flex: 1;
+    min-width: 110px;
+}
+
+.step-image-wrapper {
+    width: 90px;
+    height: 90px;
+}
+
+.step-number-badge {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 22px;
+    background-color: #710000;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    box-shadow: 0 2px 6px rgba(113, 0, 0, 0.3);
+}
+
+.step-circle-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2.5px solid #710000;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.farm-step-item:hover .step-circle-img {
+    transform: scale(1.05);
+    border-color: #c99525;
+}
+
+.step-title {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 800;
+    color: #171717;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.step-desc {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    color: #555555;
+    line-height: 1.35;
+    margin-bottom: 0;
+}
+
+.step-arrow-connector {
+    margin-top: -30px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 991.98px) {
+    .farm-title {
+        font-size: 2.1rem;
+    }
+    
+    .farm-steps-pipeline {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px 16px;
+    }
+    
+    .farm-step-item {
+        flex: 0 0 calc(33.333% - 16px);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .farm-step-item {
+        flex: 0 0 calc(50% - 16px);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   12. Combined Story, Rating, Testimonial & Gallery Section Component
+   -------------------------------------------------------------------------- */
+.story-reviews-combined-section {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+.combined-card {
+    border-radius: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.combined-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Story Red Card */
+.story-red-card {
+    background: linear-gradient(135deg, #710000 0%, #8c0000 50%, #660000 100%);
+    border: 1.5px solid rgba(229, 193, 88, 0.3);
+}
+
+.text-gold-light {
+    color: #e5c158;
+}
+
+.gold-line-small {
+    width: 25px;
+    height: 1.5px;
+    background-color: #e5c158;
+    display: inline-block;
+}
+
+.story-card-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.story-card-desc {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.btn-story-white {
+    background: #ffffff;
+    color: #710000 !important;
+    border: 1px solid #e5c158;
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    padding: 8px 18px;
+    transition: all 0.3s ease;
+}
+
+.btn-story-white:hover {
+    background: #e5c158;
+    color: #171717 !important;
+}
+
+/* Rating Breakdown Card */
+.rating-breakdown-card {
+    background: #ffffff;
+    border: 1px solid rgba(201, 149, 37, 0.25) !important;
+}
+
+.score-number {
+    color: #171717;
+}
+
+.btn-rating-gold {
+    background: #ffffff;
+    color: #710000 !important;
+    border: 1.5px solid #c99525;
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    padding: 8px 18px;
+    transition: all 0.3s ease;
+}
+
+.btn-rating-gold:hover {
+    background: #c99525;
+    color: #ffffff !important;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+    background: #fdfbf7;
+    border: 1px solid rgba(201, 149, 37, 0.25) !important;
+}
+
+.quote-mark-gold {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    color: #c99525;
+    line-height: 0.8;
+}
+
+.testimonial-slides-container {
+    min-height: 140px;
+}
+
+.testimonial-slide {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform: translateY(8px);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+}
+
+.testimonial-slide.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    transform: translateY(0);
+}
+
+.author-avatar-img {
+    width: 44px;
+    height: 44px;
+    object-fit: cover;
+    border: 1.5px solid #c99525;
+}
+
+.carousel-dots .dot-item {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #d6d6d6;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dots .dot-item.active {
+    background-color: #710000;
+    width: 10px;
+    height: 10px;
+    transform: scale(1.1);
+}
+
+/* --------------------------------------------------------------------------
+   13. Choose Your Bundle Section Component
+   -------------------------------------------------------------------------- */
+.choose-bundle-section {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+.bundle-card {
+    background: #ffffff;
+    border: 1.5px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.bundle-title {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    text-transform: none !important;
+}
+
+.featured-bundle {
+    border: 2px solid #e5c158 !important;
+    box-shadow: 0 10px 30px rgba(201, 149, 37, 0.15) !important;
+    background: linear-gradient(180deg, #fffdfa 0%, #ffffff 100%);
+}
+
+.best-value-badge {
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #710000 0%, #a30000 50%, #710000 100%);
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    padding: 5px 22px;
+    border-radius: 20px;
+    border: 1.5px solid #e5c158;
+    box-shadow: 0 4px 12px rgba(113, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+.bundle-img {
+    max-height: 120px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.bundle-card:hover .bundle-img {
+    transform: scale(1.05);
+}
+
+.bundle-price {
+    color: #171717;
+    line-height: 1.1;
+}
+
+.btn-bundle-select {
+    background: linear-gradient(135deg, #710000 0%, #8c0000 100%);
+    color: #ffffff !important;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-bundle-select:hover {
+    background: linear-gradient(135deg, #500000 0%, #710000 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(113, 0, 0, 0.25);
+}
+
+.bundle-trust-card {
+    background: #faf3e8;
+    border: 1.5px solid rgba(201, 149, 37, 0.25) !important;
+    border-radius: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   14. FAQ Section Component
+   -------------------------------------------------------------------------- */
+.faq-section {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+.faq-title {
+    font-family: var(--font-serif);
+    color: #710000 !important;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.faq-card {
+    background: #faf3e8;
+    border: 1px solid rgba(201, 149, 37, 0.25) !important;
+    border-radius: 12px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-card:hover {
+    border-color: #710000 !important;
+    box-shadow: 0 4px 15px rgba(113, 0, 0, 0.06);
+}
+
+.faq-button {
+    background: #faf3e8 !important;
+    transition: background 0.3s ease;
+}
+
+.faq-button:not(.collapsed) {
+    background: #f5e8d5 !important;
+}
+
+.faq-chevron {
+    transition: transform 0.3s ease;
+}
+
+.faq-button:not(.collapsed) .faq-chevron {
+    transform: rotate(180deg);
+}
+
+.faq-question {
+    font-family: var(--font-sans);
+    color: #222222 !important;
+    font-size: 13.5px !important;
+    line-height: 1.35;
+}
+
+.faq-answer {
+    line-height: 1.6;
+    color: #555555;
+    font-size: 13px !important;
+}
+
+/* --------------------------------------------------------------------------
+   15. Pre-Footer CTA Banner Component
+   -------------------------------------------------------------------------- */
+.pre-footer-cta-section {
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 10;
+}
+
+.cta-banner-card {
+    background: linear-gradient(135deg, #710000 0%, #8c0000 50%, #680000 100%);
+    border: 1.5px solid rgba(229, 193, 88, 0.3);
+    box-shadow: 0 14px 40px rgba(113, 0, 0, 0.25);
+}
+
+.cta-img {
+    max-height: 75px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+.cta-headline {
+    font-size: 1.4rem;
+    line-height: 1.25;
+}
+
+.btn-gold-buy {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 50%, #e5c158 100%);
+    color: #710000 !important;
+    border: 1px solid #ffffff;
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    letter-spacing: 0.8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn-gold-buy:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f6d365 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(229, 193, 88, 0.4) !important;
+    color: #500000 !important;
+}
+
+/* --------------------------------------------------------------------------
+   16. Main Footer Component
+   -------------------------------------------------------------------------- */
+.footer-main {
+    background-color: #faf3e8;
+    position: relative;
+    z-index: 10;
+}
+
+.social-icon-btn {
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s ease;
+    background-color: #171717 !important;
+}
+
+.social-icon-btn:hover {
+    background-color: #710000 !important;
+    transform: translateY(-2px);
+}
+
+.footer-heading {
+    color: #171717;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.footer-link {
+    transition: color 0.25s ease;
+    font-size: 12.5px;
+}
+
+.footer-link:hover {
+    color: #710000 !important;
+}
+
+.footer-contact-list {
+    font-size: 12.5px;
+}
+
+.copyright-text {
+    font-size: 11.5px;
+}
+
+/* --------------------------------------------------------------------------
+   17. Motion & Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
