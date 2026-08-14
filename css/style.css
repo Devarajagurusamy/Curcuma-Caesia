@@ -235,6 +235,35 @@ main {
     color: var(--color-primary) !important;
 }
 
+/* Navigation Call To Action Button */
+.btn-nav-cta {
+    background-color: var(--color-primary);
+    color: var(--color-white) !important;
+    border: 1px solid var(--color-primary);
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 7px 18px;
+    transition: all 0.25s ease;
+}
+
+.btn-nav-cta:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-white) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(113, 0, 0, 0.25);
+}
+
+.btn-nav-cta svg {
+    transition: transform 0.2s ease;
+}
+
+.btn-nav-cta:hover svg {
+    transform: scale(1.1);
+}
+
 /* Right Action Buttons & Cart Badge */
 .action-icon-btn {
     background: transparent;
@@ -320,6 +349,18 @@ main {
     
     .logo-text-img {
         height: 34px;
+    }
+
+    .btn-nav-cta {
+        padding: 6px 14px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .btn-nav-cta {
+        padding: 5px 12px;
+        font-size: 10px;
     }
 }
 

@@ -134,21 +134,15 @@
 
                 <!-- Right: Action Icons (Search, Account, Cart, Mobile Toggle) -->
                 <div class="nav-actions d-flex align-items-center gap-3 gap-md-4">
-                    <!-- Search Icon -->
-                    <button type="button" class="btn action-icon-btn p-1" aria-label="Search" data-bs-toggle="modal" data-bs-target="#searchModal">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    <!-- Navigation Call To Action Button -->
+                    <a href="#bundle" class="btn btn-nav-cta rounded-pill d-inline-flex align-items-center gap-1.5 shadow-sm text-decoration-none">
+                        <span>ORDER NOW</span>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
                         </svg>
-                    </button>
-
-                    <!-- Account Icon -->
-                    <button type="button" class="btn action-icon-btn p-1" aria-label="Account" data-bs-toggle="modal" data-bs-target="#accountModal">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </button>
+                    </a>
 
                     <!-- Cart Icon with Red Counter Badge -->
                     <button type="button" class="btn action-icon-btn cart-icon-wrapper p-1 position-relative" aria-label="Shopping Cart" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
